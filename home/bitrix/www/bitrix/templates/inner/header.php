@@ -3,15 +3,15 @@
 IncludeTemplateLangFile(__FILE__);
 ?> 
 <!DOCTYPE HTML>
-<html lang="en-US">
+<html lang="<?=LANGUAGE_ID?>">
 <head>
 	<?$APPLICATION->ShowHead();?>
-	<link rel="stylesheet" href="<?=SITE_TEMPLATE_PATH?>/template_style.css"/>
-	<script type="text/javascript" src="<?=SITE_TEMPLATE_PATH?>/js/jquery-1.8.2.min.js"></script>
-	<script type="text/javascript" src="<?=SITE_TEMPLATE_PATH?>/js/slides.min.jquery.js"></script>
-	<script type="text/javascript" src="<?=SITE_TEMPLATE_PATH?>/js/jquery.carouFredSel-6.1.0-packed.js"></script>
-	<script type="text/javascript" src="<?=SITE_TEMPLATE_PATH?>/js/functions.js"></script>
-	<link rel="stylesheet icon" type="image/x-icon" href="<?=SITE_TEMPLATE_PATH?>/favicon.ico"></link>
+	<?$APPLICATION->SetAdditionalCSS(SITE_TEMPLATE_PATH.'/../.default/template_style.css', true)?>
+	<?$APPLICATION->AddHeadScript(SITE_TEMPLATE_PATH.'/../.default/js/jquery-1.8.2.min.js')?>	
+	<?$APPLICATION->AddHeadScript(SITE_TEMPLATE_PATH.'/../.default/js/slides.min.jquery.js')?>
+	<?$APPLICATION->AddHeadScript(SITE_TEMPLATE_PATH.'/../.default/js/jquery.carouFredSel-6.1.0-packed.js')?>
+	<?$APPLICATION->AddHeadScript(SITE_TEMPLATE_PATH.'/../.default/js/functions.js')?>
+	<link rel="stylesheet icon" type="image/x-icon" href="<?=SITE_TEMPLATE_PATH?>/../.default/favicon.ico"></link>
 	<title><?$APPLICATION->ShowTitle()?></title>
 </head>
 <body>
@@ -22,7 +22,7 @@ IncludeTemplateLangFile(__FILE__);
 				<table>
 					<tr>
 						<td rowspan="2" class="hd_companyname">
-							<h1><a href="">Мебельный магазин</a></h1>
+							<h1><a href=""><?$APPLICATION->ShowTitle(false)?></a></h1>
 						</td>
 						<td rowspan="2" class="hd_txarea">
 							<span class="tel">8 (495) 212-85-06</span>	<br/>	
@@ -63,7 +63,7 @@ IncludeTemplateLangFile(__FILE__);
 				</table>
 				<div class="nv_topnav">
 					<ul>
-						<li><a href=""   class="menu-img-fon"  style="background-image: url(<?=SITE_TEMPLATE_PATH?>/images/nv_home.png);" ><span></span></a></li>
+						<li><a href=""   class="menu-img-fon"  style="background-image: url(<?=SITE_TEMPLATE_PATH?>/../.default/images/nv_home.png);" ><span></span></a></li>
 						<li><a href=""><span>Компания</span></a>
 							<ul>
 								<li><a href="">Пункт 1</a></li>
@@ -109,5 +109,5 @@ IncludeTemplateLangFile(__FILE__);
 				<div class="mn_content">
 					<div class="main_post">
 						<div class="main_title">
-							<p class="title">Заголовок страницы</p>
+							<p class="title"><?$APPLICATION->ShowTitle(false)?></p>
 						</div>
