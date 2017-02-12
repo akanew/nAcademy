@@ -32,11 +32,41 @@ IncludeTemplateLangFile(__FILE__);
 							</li>
 						</ul>
 					</div>
-					<div class="sb_event">
-						<div class="sb_event_header"><h4>Ближайшие события</h4></div>
-						<p><a href="">29 августа 2012, Москва</a></p>
-						<p>Семинар производителей мебели России и СНГ, Обсуждение тенденций.</p>
-					</div>
+					<?
+						
+						echo $cutCurPage;
+					?>
+					<?
+						//определяем каталог для сравнения
+						$curPage = $APPLICATION->GetCurPage();
+						$cutCurPage = substr($curPage, 1, strrpos($curPage, "/")-1);
+						
+						if($cutCurPage != "forPartners"){
+							$APPLICATION->IncludeComponent(
+							"bitrix:main.include", 
+							"template1", 
+							array(
+								"AREA_FILE_SHOW" => "file",
+								"AREA_FILE_SUFFIX" => "inc",
+								"AREA_FILE_RECURSIVE" => "Y",
+								"EDIT_TEMPLATE" => "",
+								"COMPONENT_TEMPLATE" => "template1",
+								"PATH" => "/bitrix/templates/inner/components/bitrix/main.include/template1/sect_inc.php"
+							),
+							false);
+						}
+						else {
+							$APPLICATION->IncludeComponent(
+								"bitrix:main.include",
+								"",
+								Array(
+									"AREA_FILE_SHOW" => "sect",
+									"AREA_FILE_SUFFIX" => "inc",
+									"AREA_FILE_RECURSIVE" => "Y",
+									"EDIT_TEMPLATE" => ""
+								)
+							);
+						}?>
 					<div class="sb_action">
 						<a href=""><img src="<?=SITE_TEMPLATE_PATH?>/../.default/content/11.png" alt=""/></a>
 						<h4>Акция</h4>
