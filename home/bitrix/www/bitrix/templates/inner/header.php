@@ -81,14 +81,15 @@ IncludeTemplateLangFile(__FILE__);
 		</div>
 		
 		<!--- // end header area --->
-		<div class="bc_breadcrumbs">
-			<ul>
-				<li><a href="">Каталог</a></li>
-				<li><a href="">Мебель</a></li>
-				<li><a href="">Выставки и события</a></li>
-			</ul>
-			<div class="clearboth"></div>
-		</div>
+		<?$APPLICATION->IncludeComponent(
+			"bitrix:breadcrumb",
+			"template1",
+			Array(
+				"START_FROM" => "0",
+				"PATH" => "",
+				"SITE_ID" => "-"
+			)
+		);?>
 		<div class="main_container page">
 			<div class="mn_container">
 				<div class="mn_content">
