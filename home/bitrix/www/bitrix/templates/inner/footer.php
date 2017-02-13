@@ -126,7 +126,17 @@ IncludeTemplateLangFile(__FILE__);
 						<span class="adr">
 							<span class="street-address">ул. Летняя стр.12, офис 512</span>
 						</span>
-						<span class="tel">8 (495) 212-85-06</span>
+						<span class="tel">
+							<?$APPLICATION->IncludeComponent(
+								"bitrix:main.include",
+								"",
+								Array(
+									"AREA_FILE_SHOW" => "file",
+									"PATH" => "/phone.txt",
+									"EDIT_TEMPLATE" => ""
+								)
+							);?>
+						</span>
 						<strong><?=GetMessage('WORKING_TIME')?></strong> <br/> <span class="workhours">ежедневно с 9-00 до 18-00</span><br/>
 					</p>
 					<ul class="ft_solcial">

@@ -25,7 +25,17 @@ IncludeTemplateLangFile(__FILE__);
 							<h1><a href="">Мебельный магазин</a></h1>
 						</td>
 						<td rowspan="2" class="hd_txarea">
-							<span class="tel">8 (495) 212-85-06</span>	<br/>	
+							<span class="tel">
+															<?$APPLICATION->IncludeComponent(
+								"bitrix:main.include",
+								"",
+								Array(
+									"AREA_FILE_SHOW" => "file",
+									"PATH" => "/phone.txt",
+									"EDIT_TEMPLATE" => ""
+								)
+							);?>
+							</span>
 							<?=GetMessage('WORKING_TIME')?> <span class="workhours">ежедневно с 9-00 до 18-00</span>						
 						</td>
 						<td style="width:232px">
