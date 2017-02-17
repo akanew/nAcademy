@@ -3,7 +3,10 @@
 <?if($arResult["FORM_TYPE"] == "login"):?>
 
 <?
-if ($arResult['SHOW_ERRORS'] == 'Y' && $arResult['ERROR'])
+$curPage = $APPLICATION->GetCurPage();
+$cutCurPage = substr($curPage, 1, strrpos($curPage, "/")-1);
+
+if ($arResult['SHOW_ERRORS'] == 'Y' && $arResult['ERROR'] && $cutCurPage != 'user')
 	ShowMessage($arResult['ERROR_MESSAGE']);
 ?>
 
