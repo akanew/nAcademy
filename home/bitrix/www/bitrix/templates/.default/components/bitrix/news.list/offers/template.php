@@ -2,7 +2,6 @@
 $this->setFrameMode(true);
 ?>
 
-
 <div class="sb_action">
 <?foreach($arResult["ITEMS"] as $arItem):?>
 	<a href="<?=SITE_DIR.$arItem["DETAIL_PAGE_URL"]?>"><img src="<?=$arItem["PREVIEW_PICTURE"]["SRC"]?>" alt="<?=$arItem["PREVIEW_PICTURE"]["ALT"]?>"/></a>

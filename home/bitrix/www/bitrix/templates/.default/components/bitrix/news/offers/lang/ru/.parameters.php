@@ -8,4 +8,6 @@ $MESS["T_IBLOCK_DESC_NEWS_SHARE_TEMPLATE"] = "Шаблон компонента 
 $MESS["T_IBLOCK_DESC_NEWS_SHARE_SYSTEM"] = "Используемые соц. закладки и сети";
 $MESS["T_IBLOCK_DESC_NEWS_SHARE_SHORTEN_URL_LOGIN"] = "Логин для bit.ly";
 $MESS["T_IBLOCK_DESC_NEWS_SHARE_SHORTEN_URL_KEY"] = "Ключ для для bit.ly";
+$MESS["DISPLAY_PREVIEW_IMG_W"] = "Уменшенная ширина изображения";
+$MESS["DISPLAY_PREVIEW_IMG_H"] = "Уменшенная высота изображения";
 ?>

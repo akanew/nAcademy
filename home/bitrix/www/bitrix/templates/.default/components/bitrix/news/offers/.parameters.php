@@ -25,6 +25,16 @@ $arTemplateParameters = array(
 		"DEFAULT" =>"N",
 		"REFRESH"=> "Y",
 	),
+	"DISPLAY_PREVIEW_IMG_H" => Array(
+		"NAME" => GetMessage("DISPLAY_PREVIEW_IMG_H"),
+		"TYPE" => "STRING",
+		"DEFAULT" => "100",
+	),
+	"DISPLAY_PREVIEW_IMG_W" => Array(
+		"NAME" => GetMessage("DISPLAY_PREVIEW_IMG_W"),
+		"TYPE" => "STRING",
+		"DEFAULT" => "100",
+	)
 );
 
 if ($arCurrentValues["USE_SHARE"] == "Y")
@@ -73,6 +83,7 @@ if ($arCurrentValues["USE_SHARE"] == "Y")
 		"TYPE" => "STRING",
 		"DEFAULT" => "",
 	);
+
 }
 
 ?>
