@@ -1,4 +1,7 @@
 <?
+	if(file_exists($_SERVER["DOCUMENT_ROOT"]."/bitrix/php_interface/constants.php"))
+		require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/php_interface/constants.php");
+	
 	if(file_exists($_SERVER["DOCUMENT_ROOT"]."/bitrix/php_interface/functions-dump.php"))
 		require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/php_interface/functions-dump.php");
 	
