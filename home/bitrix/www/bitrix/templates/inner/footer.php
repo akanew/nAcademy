@@ -2,6 +2,7 @@
 <?
 IncludeTemplateLangFile(__FILE__);
 ?> 
+			<?=$APPLICATION->ShowViewContent("product_materials");?>
 			</div>
 				</div>
 				<div class="sb_sidebar">

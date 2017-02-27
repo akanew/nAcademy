@@ -78,4 +78,63 @@ $APPLICATION->SetTitle("Продукция");
 	)
 	),
 	false
-);?><?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
+);?>
+
+<?
+	/*define("PRODUCTS_IBLOCK_ID", 2);
+	//Выборка всех секций
+	//if(CModule::IncludeModule('iblock')){
+	//	$arSelect = Array('ID', 'NAME', 'SECTION_ID');
+	//	$arFilter = Array('IBLOCK_ID'=>PRODUCTS_IBLOCK_ID);
+	//	$res = CIBlockSection::GetList(Array('SORT'=>'ASC'), $arFilter, true, $arSelect);
+	//	while($ob = $res->GetNext())
+	//		echo $ob['ID'].'-'.$ob['NAME'].'-'.$ob['SECTION_ID'].'<br />';
+	//}
+	//Получаем id раздела
+	$page = $APPLICATION->GetCurPage();
+	$indSlash = strrpos($page, '/');
+	$subStr = substr($page, 0, $indSlash);
+	$indSlash2 = strrpos($subStr, '/');
+	$sectionId = substr($subStr, $indSlash2+1);
+
+	//Получаем список всех товаров раздела
+	$arSelect = Array("ID");
+	$arFilter = Array("IBLOCK_ID" => PRODUCTS_IBLOCK_ID, 'SECTION_ID'=>$sectionId);
+	$res = CIBlockElement::GetList(Array(), $arFilter, false, Array(), $arSelect);
+	$materials = array();
+	$materialsCnt = array();
+	while($ob = $res->GetNextElement()){
+		$arFields = $ob->GetFields();
+		//Определяем материалы всех товаров раздела		
+		$db_props = CIBlockElement::GetProperty(PRODUCTS_IBLOCK_ID, $arFields['ID'], array("sort" => "asc"), Array("CODE"=>"MATERIAL"));
+		if($ar_props = $db_props->Fetch()){
+			$materials[] = $ar_props["VALUE"];
+			$materialsCnt[] = 0;
+		}
+	}
+
+	//Вычисляем количество товаров каждого типа
+	$arSelect = Array("ID");
+	$arFilter = Array("IBLOCK_ID" => PRODUCTS_IBLOCK_ID, 'SECTION_ID'=>$sectionId);
+	$res = CIBlockElement::GetList(Array(), $arFilter, false, Array(), $arSelect);
+	while($ob = $res->GetNextElement()){
+		$arFields = $ob->GetFields();
+		//Определяем материалы всех товаров раздела
+		$db_props = CIBlockElement::GetProperty(PRODUCTS_IBLOCK_ID, $arFields['ID'], array("sort" => "asc"), Array("CODE"=>"MATERIAL"));
+		if($ar_props = $db_props->Fetch()){
+			for($i=0; $i<count($materials); $i++){
+				if(strcmp($ar_props["VALUE"],$materials[$i])==0){
+					$materialsCnt[$i]++;
+					break;
+				}
+			}
+		}
+	}	
+	
+	$this->SetViewTarget();
+	for($i=0; $i<count($materials); $i++)
+		echo 'Из материалов "'.$material[$i].'" выполнено '.$materialsCnt[$i].' товаров.<br>'
+	$this->EndViewTarget();*/
+?>
+
+<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
