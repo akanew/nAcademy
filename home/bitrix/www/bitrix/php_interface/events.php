@@ -23,4 +23,24 @@ class IBlock_Elements_Update
 		}
     }
 }
+
+AddEventHandler("iblock", "OnBeforeIBlockElementDelete", Array("IBlock_Elements_Delete", "OnBeforeIBlockElementDeleteHandler"));
+
+class IBlock_Elements_Delete
+{
+    function OnBeforeIBlockElementDeleteHandler($ID)
+    {
+		if(CModule::IncludeModule('iblock'))
+			{
+			$arFilter = Array("IBLOCK_ID"=>PRODUCTS_IBLOCK_ID, "ID" => $ID);
+			$res = CIBlockElement::GetList(Array("SORT"=>"ASC"), $arFilter, false, false, Array("ID", "SHOW_COUNTER"));
+			while($ar_fields = $res->GetNext())
+				if($ar_fields[SHOW_COUNTER] > 1){
+					$APPLICATION->throwException("Не стоит удалять товар, количество просмотров которого составляет ".$ar_fields[SHOW_COUNTER].'.');
+					return false;
+				}
+					
+			}
+    }
+}
 ?>
