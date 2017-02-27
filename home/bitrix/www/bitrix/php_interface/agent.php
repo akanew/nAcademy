@@ -36,6 +36,6 @@
 				}
 			}
 		}
-		return "agentCheckStocks();"
+		return "agentCheckStocks();";
 	}
 ?>
