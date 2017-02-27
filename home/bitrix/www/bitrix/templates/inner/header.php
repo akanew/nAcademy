@@ -38,3 +38,4 @@ IncludeTemplateLangFile(__FILE__);
 						<div class="main_title">
 							<p class="title"><?$APPLICATION->ShowTitle(false)?></p>
 						</div>
+						<?=$APPLICATION->ShowViewContent("news_date");?>

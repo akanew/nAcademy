@@ -1,7 +1,5 @@
 <?
 	function agentCheckStocks(){
-		require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
-		$APPLICATION->SetTitle("Test");
 
 		$arSelect = Array("ID", "NAME", "DATE_ACTIVE_TO");
 		$arFilter = Array("IBLOCK_ID" => OFFERS_IBLOCK_ID, "DATE_MODIFY_TO" => date('d.m.Y H:i:s'));
