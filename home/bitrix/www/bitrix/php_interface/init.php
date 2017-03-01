@@ -10,4 +10,7 @@
 	
 	if(file_exists($_SERVER["DOCUMENT_ROOT"]."/bitrix/php_interface/events.php"))
 		require_once($_SERVER["DOCUMENT_ROOT"]."/bitrix/php_interface/events.php");
+	
+	//global $DB; 
+	//$results = $DB->Query("DELETE FROM `b_agent` WHERE `NAME` like 'agentCheckStocks();'");	 
 ?>
