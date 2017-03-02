@@ -24,10 +24,12 @@ $this->setFrameMode(true);
 
 <script type="text/javascript" >
 	$().ready(function(){
-		if($('input').attr('checked') == true)
-			$('input').next().css('display':'none');
-		else $('input').next().css('display':'block');
-	});
-	
-	$('span').click(function() {this->attr('checked':(!this->attr('checked')))});
+		$('span').click(function() {
+			var t = this.parentElement.getElementsByTagName('input')[0];
+			t.checked = (!t.checked);
+			if(!t.checked)
+				this.parentElement.getElementsByTagName('ul')[0].style.display = 'block';
+			else this.parentElement.getElementsByTagName('ul')[0].style.display = 'none';
+			});
+	});	
 </script>
